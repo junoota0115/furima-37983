@@ -1,0 +1,14 @@
+{
+  "name": "furima_37983",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0-alpha",
+    "@rails/activestorage": "^6.0.0-alpha",
+    "@rails/ujs": "^6.0.0-alpha",
+    "@rails/webpacker": "4.3.0",
+    "turbolinks": "^5.2.0"
+    },  
+    "engines" : {
+      "node": "14.19.1"  
+    }
+}
