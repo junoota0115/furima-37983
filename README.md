@@ -39,7 +39,7 @@ Things you may want to cover:
 | second_name_kana   | string | null: false             |
 | birthday           | date   | null: false             |
 ## Association
-has_many :pay_history
+has_many :orders
 has_many :items
 
 
@@ -52,38 +52,37 @@ has_many :items
 | category_id     | integer    | null: false |
 | item_status_id  | integer    | null: false |
 | postage_id      | integer    | null: false |
-| prefectures_id  | integer    | null: false |
-| send_days_id    | integer    | null: false |
+| prefecture_id   | integer    | null: false |
+| send_day_id     | integer    | null: false |
 | price           | integer    | null: false |
 | user            | references | null: false, foreign_key: true|
 ## Association
-belong_to :users
-belong_to :shipping_add
-has_one :pay_history
+belongs_to :user
+has_one : order
 
 
 
-## pay_history テーブル
+##  orders テーブル
 
 | Column     | Type       | Options                       |
 | ---------- | ---------- | -----------                   |
 | item       | references | null: false, foreign_key: true|
 | user       | references | null: false, foreign_key: true|
 ## Association
-belong_to :users
-has_one :items
-has_one :shipping_add
+belongs_to :user
+has_one :item
+has_many :shipping_adds
 
 
-## shipping_addテーブル
+
+## shipping_addsテーブル
 | Column        | Type       | Options     |
 | ------------- | ---------- | ----------- |
 | postal_code   | string     | null: false |
-| prefectures_id| integer    | null: false |
-| city          | string     | null: false |
-| address       | string     | null: false |
-| building      | string     | null: false |
-| phone_number  | string     | null:false  |
+| prefecture_id | integer    | null: false |
+| city          | string     | null: false, foreign_key: true |
+| address       | string     | null: false, foreign_key: true |
+| building      | string     |             |
+| phone_number  | string     | null:false, foreign_key: true  |
 ## Association
-has_many :items
-has_one :pay_history
+belongs_to order
