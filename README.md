@@ -23,7 +23,8 @@ Things you may want to cover:
 
 * ...
 +
-## Association
+
+
 
 ## users テーブル
 
@@ -37,6 +38,9 @@ Things you may want to cover:
 | first_name_kana    | string | null: false             |
 | second_name_kana   | string | null: false             |
 | birthday           | date   | null: false             |
+## Association
+has_many :pay_history
+has_many :items
 
 
 ## items テーブル
@@ -52,6 +56,11 @@ Things you may want to cover:
 | send_days_id    | integer    | null: false |
 | price           | integer    | null: false |
 | user            | references | null: false, foreign_key: true|
+## Association
+belong_to :users
+belong_to :shipping_add
+has_one :pay_history
+
 
 
 ## pay_history テーブル
@@ -60,14 +69,21 @@ Things you may want to cover:
 | ---------- | ---------- | -----------                   |
 | item       | references | null: false, foreign_key: true|
 | user       | references | null: false, foreign_key: true|
+## Association
+belong_to :users
+has_one :items
+has_one :shipping_add
+
 
 ## shipping_addテーブル
 | Column        | Type       | Options     |
 | ------------- | ---------- | ----------- |
-| user          | references | null: false, foreign_key: true |
 | postal_code   | string     | null: false |
 | prefectures_id| integer    | null: false |
 | city          | string     | null: false |
 | address       | string     | null: false |
 | building      | string     | null: false |
 | phone_number  | string     | null:false  |
+## Association
+has_many :items
+has_one :pay_history
