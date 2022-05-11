@@ -23,49 +23,51 @@ Things you may want to cover:
 
 * ...
 +
+## Association
 
 ## users テーブル
 
 | Column             | Type   | Options                 |
 | ------------------ | ------ | ----------------------- |
-| nickname           | string | null: false, unique:true|
+| nickname           | string | null: false             |
 | email              | string | null: false, unique:true|
-| encrypted_password | string | null: false, unique:true|
-| first_name         | string | nill: false             |
-| second_name        | string | nill: false             |
-| first_name_kana    | string | nill: false             |
-| second_name_kana   | string | nill: false             |
-| birthday           | string | nill: false             |
+| encrypted_password | string | null: false             |
+| first_name         | string | null: false             |
+| second_name        | string | null: false             |
+| first_name_kana    | string | null: false             |
+| second_name_kana   | string | null: false             |
+| birthday           | date   | null: false             |
 
 
 ## items テーブル
 
-| Column       | Type   | Options     |
-| ------------ | ------ | ----------- |
-| item_name    | string | null: false |
-| content      | text   | null: false |
-| category     | string | null: false |
-| item_status  | string | null: false |
-| postage      | string | null: false |
-| prefectures  | string | null: false |
-| days         | string | null: false |
-| price        | integer| null: false |
-| user_id      | integer| null: false |
+| Column          | Type       | Options     |
+| --------------- | ---------- | ----------- |
+| item_name       | string     | null: false |
+| content         | text       | null: false |
+| category_id     | integer    | null: false |
+| item_status_id  | integer    | null: false |
+| postage_id      | integer    | null: false |
+| prefectures_id  | integer    | null: false |
+| send_days_id    | integer    | null: false |
+| price           | integer    | null: false |
+| user            | references | null: false, foreign_key: true|
 
 
-## 購入履歴 テーブル
+## pay_history テーブル
 
 | Column     | Type       | Options                       |
 | ---------- | ---------- | -----------                   |
-| item       | string     | null: false, foreign_key: true|
+| item       | references | null: false, foreign_key: true|
 | user       | references | null: false, foreign_key: true|
 
-## 配送先住所テーブル
-| Column      | Type       | Options     |
-| ----------- | ---------- | ----------- |
-| user_id     | references | null: false |
-| postal_code | integer    | null: false |
-| city        | string     | null: false |
-| municipality| string     | null: false |
-| address     | string     | null: false |
-| phone_number| integer    | null:false  |
+## shipping_addテーブル
+| Column        | Type       | Options     |
+| ------------- | ---------- | ----------- |
+| user          | references | null: false, foreign_key: true |
+| postal_code   | string     | null: false |
+| prefectures_id| integer    | null: false |
+| city          | string     | null: false |
+| address       | string     | null: false |
+| building      | string     | null: false |
+| phone_number  | string     | null:false  |
