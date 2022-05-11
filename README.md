@@ -71,14 +71,14 @@ has_one : order
 ## Association
 belongs_to :user
 belongs_to :item
-has_many :shipping_adds
+has_one :shipping_add
 
 
 
 ## shipping_addsテーブル
 | Column          | Type       | Options     |
 | --------------- | ---------- | ----------- |
-| order_id        | references | null: false, foreign_key: true|
+| order           | references | null: false, foreign_key: true|
 | postal_code     | string     | null: false |
 | prefecture_id   | integer    | null: false |
 | city            | string     | null: false |
