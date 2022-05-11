@@ -13,7 +13,7 @@
                 <mxCell id="21" value="shipping_adds" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
                     <mxGeometry x="360" y="330" width="150" height="170" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="item_id&#10;user_id&#10;postal_code &#10;prefecture_id&#10;city &#10;address &#10;building &#10;phone_number" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="21">
+                <mxCell id="22" value="order_id&#10;postal_code &#10;prefecture_id&#10;city &#10;address &#10;building &#10;phone_number" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="21">
                     <mxGeometry y="30" width="150" height="140" as="geometry"/>
                 </mxCell>
                 <mxCell id="23" value="orders" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">

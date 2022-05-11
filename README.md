@@ -78,8 +78,7 @@ has_many :shipping_adds
 ## shipping_addsテーブル
 | Column          | Type       | Options     |
 | --------------- | ---------- | ----------- |
-| item_id          | integer    | null: false, foreign_key: true|
-| user_id          | integer    | null: false, foreign_key: true|
+| order_id        | references | null: false, foreign_key: true|
 | postal_code     | string     | null: false |
 | prefecture_id   | integer    | null: false |
 | city            | string     | null: false |
