@@ -70,19 +70,21 @@ has_one : order
 | user       | references | null: false, foreign_key: true|
 ## Association
 belongs_to :user
-has_one :item
+belongs_to :item
 has_many :shipping_adds
 
 
 
 ## shipping_addsテーブル
-| Column        | Type       | Options     |
-| ------------- | ---------- | ----------- |
-| postal_code   | string     | null: false |
-| prefecture_id | integer    | null: false |
-| city          | string     | null: false, foreign_key: true |
-| address       | string     | null: false, foreign_key: true |
-| building      | string     |             |
-| phone_number  | string     | null:false, foreign_key: true  |
+| Column          | Type       | Options     |
+| --------------- | ---------- | ----------- |
+| item_id          | integer    | null: false, foreign_key: true|
+| user_id          | integer    | null: false, foreign_key: true|
+| postal_code     | string     | null: false |
+| prefecture_id   | integer    | null: false |
+| city            | string     | null: false |
+| address         | string     | null: false |
+| building        | string     |             |
+| phone_number    | string     | null:false  |
 ## Association
 belongs_to order
