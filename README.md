@@ -58,7 +58,7 @@ has_many :items
 | user            | references | null: false, foreign_key: true|
 ## Association
 belongs_to :user
-has_one : order
+has_one :order
 
 
 
@@ -86,4 +86,4 @@ has_one :shipping_add
 | building        | string     |             |
 | phone_number    | string     | null:false  |
 ## Association
-belongs_to order
+belongs_to :order
