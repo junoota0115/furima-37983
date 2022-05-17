@@ -85,6 +85,12 @@ describe '商品出品' do
       expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
     end
 
+    it '価格が半角数字でないと登録できない' do
+      @item.price =  "あああ"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not a number")
+    end
+
     it 'imageが空だと登録できない' do
       @item.image = nil  
     @item.valid?
