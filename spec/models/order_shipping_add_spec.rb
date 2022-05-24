@@ -55,8 +55,18 @@ RSpec.describe OrderShippingAdd, type: :model do
       @order_shipping_add.valid?
       expect(@order_shipping_add.errors.full_messages).to include("Phone number 数字のみ正しく入力してください")
     end
-    it 'phone_number 数字のみ11桁でないと保存できない' do
-      @order_shipping_add.phone_number = '090-111-333'
+    it 'phone_number 数字のみ9桁以下では保存できない' do
+      @order_shipping_add.phone_number = '090111333'
+      @order_shipping_add.valid?
+      expect(@order_shipping_add.errors.full_messages).to include("Phone number 数字のみ正しく入力してください")
+    end
+    it 'phone_number 数字のみ11桁以上では保存できない' do
+      @order_shipping_add.phone_number = '0901111333322'
+      @order_shipping_add.valid?
+      expect(@order_shipping_add.errors.full_messages).to include("Phone number 数字のみ正しく入力してください")
+    end
+    it 'phone_number に数字以外があると保存できないこと' do
+      @order_shipping_add.phone_number = '123-1234-aa'
       @order_shipping_add.valid?
       expect(@order_shipping_add.errors.full_messages).to include("Phone number 数字のみ正しく入力してください")
     end
