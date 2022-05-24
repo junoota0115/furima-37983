@@ -15,10 +15,14 @@ RSpec.describe OrderShippingAdd, type: :model do
     end
     it "建物名が空の場合でも保存できること" do
       @order_shipping_add.building = ''
-      @order_shipping_add.valid?
       expect(@order_shipping_add).to be_valid
     end
+
+    it '電話番号は、10桁以上11桁以内の半角数値のみ保存可能なこと' do
+      @order_shipping_add.building = '1234567891'
+      expect(@order_shipping_add).to be_valid
   end
+end
 
   context '商品を購入できないとき' do
     it 'postal_code が空では登録できない' do
@@ -60,7 +64,7 @@ RSpec.describe OrderShippingAdd, type: :model do
       @order_shipping_add.valid?
       expect(@order_shipping_add.errors.full_messages).to include("Phone number 数字のみ正しく入力してください")
     end
-    it 'phone_number 数字のみ11桁以上では保存できない' do
+    it 'phone_number 数字のみ12桁以上では保存できない' do
       @order_shipping_add.phone_number = '0901111333322'
       @order_shipping_add.valid?
       expect(@order_shipping_add.errors.full_messages).to include("Phone number 数字のみ正しく入力してください")

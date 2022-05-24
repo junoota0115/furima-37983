@@ -12,7 +12,7 @@ with_options presence: true do
   validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
   validates :city
   validates :address
-  validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: "数字のみ正しく入力してください" }
+  validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, message: "数字のみ正しく入力してください" }
   # トークンのバリデーション
   validates :token
 end
